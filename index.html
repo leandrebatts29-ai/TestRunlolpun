@@ -1,39 +1,42 @@
+<!DOCTYPE html>
 <html>
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Run 3</title>
 
+<style>
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background: black;
+}
 
-    <meta content="width=device-width, initial-scale=1" name="viewport"/>
-    <title>Run 3</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            background-color: black;
-        }
-    </style>
+#ruffle {
+    width: 100%;
+    height: 100%;
+}
+</style>
+
+<script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
 </head>
-<body>
-<script src="js/main.js"></script>
-<div height="100%" id="ruffle" width="100%"></div>
-<script>
 
-    var cdnScript = document.createElement('script');
-    cdnScript.src = 'https://unpkg.com/@ruffle-rs/ruffle';
-    cdnScript.onerror = loadLocalRuffle;
-    document.body.appendChild(cdnScript);
-</script>
+<body>
+<div id="ruffle"></div>
+
 <script>
-    window.RufflePlayer = window.RufflePlayer || {};
-    window.addEventListener("load", (event) => {
-        const ruffle = window.RufflePlayer.newest();
-        const player = ruffle.createPlayer();
-        const container = document.getElementById("ruffle");
-        player.id = "player";
-        player.style.width = "100%";
-        player.style.height = "100%";
-        container.appendChild(player);
-        player.load("Run3.swf");
-    });
+window.addEventListener("load", () => {
+    const ruffle = window.RufflePlayer.newest();
+    const player = ruffle.createPlayer();
+    const container = document.getElementById("ruffle");
+
+    player.style.width = "100%";
+    player.style.height = "100%";
+
+    container.appendChild(player);
+    player.load("Run3.swf");
+});
 </script>
+
 </body>
 </html>
